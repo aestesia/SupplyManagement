@@ -1,6 +1,0 @@
-@SupplyManagement_HostAddress = http://localhost:5206
-
-GET {{SupplyManagement_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
