@@ -42,7 +42,7 @@ namespace API.Repositories
             return myContext.Set<Entity>().Find(id);
         }
 
-        public int Update(Entity Entity)
+        public virtual int Update(Entity Entity)
         {
             myContext.Entry(Entity).State = EntityState.Modified;
             var result = myContext.SaveChanges();

@@ -1,4 +1,5 @@
 ﻿using API.Base;
+using API.DTO;
 using API.Models;
 using API.Repositories.Data;
 using API.Repositories.Interface;
@@ -15,6 +16,23 @@ namespace API.Controllers
         public VendorController(VendorRepository vendorRepository) : base(vendorRepository)
         {
             this.vendorRepository = vendorRepository;
+        }
+
+        [HttpPut("update")]
+        public IActionResult Update(UpdateVendorDto updateVendorDto)
+        {
+            try
+            {
+                var result = vendorRepository.Update(updateVendorDto);
+                if (result == 0)
+                    return Ok(new { StatusCode = 200, Message = "Failed to Update Data" });
+                return Ok(new { StatusCode = 200, Message = "Update Data Success" });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { StatusCode = 400, Message = ex.Message });
+            }
+            
         }
 
         //[HttpPut]
