@@ -12,10 +12,9 @@ namespace API.Models
         public string BusinessType { get; set; }
         [ForeignKey("Status")]
         public int StatusId { get; set; }
-        public DateTime SubmissionDate { get; set; }
-
+        
         public virtual Company Company { get; set; }
         public virtual Status Status { get; set; }
-
+        
     }
 }

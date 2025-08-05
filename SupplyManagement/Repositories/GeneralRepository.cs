@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using API.Context;
+﻿using API.Context;
 using API.Repositories.Interface;
+using Microsoft.AspNetCore.Components.Web.Virtualization;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Repositories
 {
@@ -14,14 +15,14 @@ namespace API.Repositories
             this.myContext = myContext;
         }
 
-        public int Create(Entity Entity)
+        public virtual int Create(Entity Entity)
         {
             myContext.Set<Entity>().Add(Entity);
             var result = myContext.SaveChanges();
             return result;
         }
 
-        public int Delete(key id)
+        public virtual int Delete(key id)
         {
             var data = GetById(id);
             if (data == null)
@@ -31,7 +32,7 @@ namespace API.Repositories
             return result;
         }
 
-        public IEnumerable<Entity> GetAll()
+        public virtual IEnumerable<Entity> GetAll()
         {
             return myContext.Set<Entity>().ToList();
         }

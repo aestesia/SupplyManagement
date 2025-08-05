@@ -16,7 +16,7 @@ namespace API.Base
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public virtual IActionResult GetAll()
         {
             try
             {
@@ -32,7 +32,7 @@ namespace API.Base
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById(Key id)
+        public virtual IActionResult GetById(Key id)
         {
             try
             {
@@ -64,7 +64,7 @@ namespace API.Base
         }
 
         [HttpPut]
-        public IActionResult Update(Entity entity)
+        public virtual IActionResult Update(Entity entity)
         {
             try
             {
