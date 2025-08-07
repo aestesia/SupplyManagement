@@ -18,9 +18,13 @@ namespace API.Repositories.Data
             throw new NotSupportedException("Create is not allowed.");
         }
 
+        public override int Update(Vendor vendor)
+        {
+            throw new NotSupportedException("This Update is not allowed.");
+        }
+
         public int Update(UpdateVendorDto updateVendorDto)
         {
-
             var vendor = myContext.Vendors.Find(updateVendorDto.Id);
 
             if (vendor == null)

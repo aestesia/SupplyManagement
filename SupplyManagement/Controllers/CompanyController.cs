@@ -15,7 +15,14 @@ namespace API.Controllers
         {
             this.companyRepository = companyRepository;
         }
-        
+
+        [HttpPost]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public override IActionResult Create(Company company)
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, "Create is not allowed.");
+        }
+
         [HttpGet]
         public override IActionResult GetAll()
         {

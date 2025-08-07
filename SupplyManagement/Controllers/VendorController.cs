@@ -18,6 +18,20 @@ namespace API.Controllers
             this.vendorRepository = vendorRepository;
         }
 
+        [HttpPost]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public override IActionResult Create(Vendor vendor)
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, "Create is not allowed.");
+        }
+
+        [HttpPut]
+        [ApiExplorerSettings(IgnoreApi = true)]
+        public override IActionResult Update(Vendor vendor)
+        {
+            return StatusCode(StatusCodes.Status405MethodNotAllowed, "This update is not allowed.");
+        }
+
         [HttpPut("update")]
         public IActionResult Update(UpdateVendorDto updateVendorDto)
         {

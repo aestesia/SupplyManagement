@@ -48,7 +48,7 @@ namespace API.Base
         }
 
         [HttpPost]
-        public IActionResult Create(Entity entity)
+        public virtual IActionResult Create(Entity entity)
         {
             try
             {
